@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     if ($db->count >= 1) {
         $_SESSION['user_logged_in'] = TRUE;
         $_SESSION['admin_type'] = $row[0]['admin_type'];
+        $_SESSION['userId'] = $row[0]['id'];
        	if($remember)
        	{
        		setcookie('username',$username , time() + (86400 * 90), "/");

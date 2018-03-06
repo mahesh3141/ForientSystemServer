@@ -37,7 +37,7 @@
         <div id="wrapper">
 
             <!-- Navigation -->
-            <?php if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == true ) : ?>
+            <?php if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == true) : ?>
                 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -79,32 +79,43 @@
                                 <li>
                                     <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                                 </li>
+                                <?php if ($_SESSION['admin_type'] == 'admin') { ?>
+                                    <li <?php echo (CURRENT_PAGE == "customers.php" || CURRENT_PAGE == "add_customer.php") ? 'class="active"' : ''; ?>>
+                                        <a href="#"><i class="fa fa-users fa-fw"></i> Customers<span class="fa arrow"></span></a>
+                                        <ul class="nav nav-second-level">
+                                            <li>
+                                                <a href="customers.php"><i class="fa fa-list fa-fw"></i>List all</a>
+                                            </li>
+                                            <li>
+                                                <a href="add_customer.php"><i class="fa fa-plus fa-fw"></i>Add New</a>
+                                            </li>
+                                        </ul>
+                                    </li>
 
-                                <li <?php echo (CURRENT_PAGE =="customers.php" || CURRENT_PAGE=="add_customer.php") ? 'class="active"' : '' ; ?>>
-                                    <a href="#"><i class="fa fa-users fa-fw"></i> Customers<span class="fa arrow"></span></a>
-                                    <ul class="nav nav-second-level">
-                                        <li>
-                                            <a href="customers.php"><i class="fa fa-list fa-fw"></i>List all</a>
-                                        </li>
-                                    <li>
-                                        <a href="add_customer.php"><i class="fa fa-plus fa-fw"></i>Add New</a>
+                                    <li <?php echo (CURRENT_PAGE == "admin_users.php" || CURRENT_PAGE == "admin_users.php") ? 'class="active"' : ''; ?>>
+                                        <a href="#"><i class="fa fa-user-circle fa-fw"></i> Staff<span class="fa arrow"></span></a>
+                                        <ul class="nav nav-second-level">
+                                            <li>
+                                                <a href="admin_users.php"><i class="fa fa-list fa-fw"></i>Staff List </a>
+                                            </li>
+                                            <li>
+                                                <a href="add_admin.php"><i class="fa fa-plus fa-fw"></i>Add New</a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    </ul>
-                                </li>
-                                
-                                 <li <?php echo (CURRENT_PAGE =="admin_users.php" || CURRENT_PAGE=="admin_users.php") ? 'class="active"' : '' ; ?>>
-                                    <a href="#"><i class="fa fa-user-circle fa-fw"></i> Staff<span class="fa arrow"></span></a>
-                                    <ul class="nav nav-second-level">
-                                        <li>
-                                            <a href="admin_users.php"><i class="fa fa-list fa-fw"></i>Staff List </a>
-                                        </li>
-                                    <li>
-                                        <a href="add_admin.php"><i class="fa fa-plus fa-fw"></i>Add New</a>
-                                    </li>
-                                    </ul>
-                                </li>
+                                <?php } ?>
                                 <li>
-                                    <a href="taskList.php"><i class="fa fa-file"></i> Task List</a>
+                                    <a href="#"><i class="fa fa-file"></i> Task <span class="fa arrow"></span></a></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="taskList.php"><i class="fa fa-list fa-fw"></i>Task List </a>
+                                        </li>
+                                         <?php if ($_SESSION['admin_type'] == 'admin') { ?>
+                                        <li>
+                                            <a href="addTask.php"><i class="fa fa-plus fa-fw"></i>Create Task</a>
+                                        </li>
+                                         <?php } ?>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>

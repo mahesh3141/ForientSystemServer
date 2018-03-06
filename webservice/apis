@@ -1,0 +1,5 @@
+// Login
+http://www.adminmasters.com/webservice/index.php?action=login&username=admin&password=0192023a7bbd73250516f069df18b500
+
+// Task List
+http://www.adminmasters.com/webservice/index.php?action=tasklist&eid=7

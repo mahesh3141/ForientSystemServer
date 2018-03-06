@@ -9,7 +9,7 @@ $admin_user_id=  filter_input(INPUT_GET, 'admin_user_id');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
     // If non-super user accesses this script via url. Stop the exexution
-    if($_SESSION['admin_type']!=='super')
+    if($_SESSION['admin_type']!=='admin')
     {
         // show permission denied message
         echo 'Permission Denied';

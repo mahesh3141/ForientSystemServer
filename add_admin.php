@@ -4,7 +4,7 @@ require_once './config/config.php';
 require_once 'includes/auth_validate.php';
 
 //Only super admin is allowed to access this page
-if ($_SESSION['admin_type'] !== 'super') {
+if ($_SESSION['admin_type'] !== 'admin') {
     // show permission denied message
     echo 'Permission Denied';
     exit();

@@ -4,7 +4,7 @@ require_once './config/config.php';
 require_once 'includes/auth_validate.php';
 
 //Only super admin is allowed to access this page
-if ($_SESSION['admin_type'] !== 'super') {
+if ($_SESSION['admin_type'] !== 'admin') {
     // show permission denied message
     header('HTTP/1.1 401 Unauthorized', true, 401);
     
@@ -29,11 +29,15 @@ if ($order_by == "") {
     $order_by = "desc";
 }
 // select the columns
-$select = array('id', 'user_name', 'admin_type');
+$tableColumn = array('id', 'user_name', 'admin_type','fname','lname');
+$select = array('id', 'user_name','fname', 'admin_type');
+$select_data = array('ID','User Name','Employee Name','Type');
 
 // If user searches 
 if ($search_string) {
     $db->where('user_name', '%' . $search_string . '%', 'like');
+    $db->orwhere('fname', '%' . $search_string . '%', 'like');
+    $db->orwhere('lname', '%' . $search_string . '%', 'like');
 }
 
 
@@ -42,7 +46,7 @@ if ($order_by) {
 }
 
 $db->pageLimit = $pagelimit;
-$result = $db->arraybuilder()->paginate("admin_accounts", $page, $select);
+$result = $db->arraybuilder()->paginate("admin_accounts", $page, $tableColumn);
 $total_pages = $db->totalPages;
 
 
@@ -87,9 +91,11 @@ include_once 'includes/header.php';
             <select name="filter_col" class="form-control">
 
                 <?php
-                foreach ($filter_options as $option) {
+                $index =0;
+                foreach ($select as $option) {
                     ($filter_col === $option) ? $selected = "selected" : $selected = "";
-                    echo ' <option value="' . $option . '" ' . $selected . '>' . $option . '</option>';
+                    echo ' <option value="' . $option . '" ' . $selected . '>' . $select_data[$index] . '</option>';
+                    $index++;
                 }
                 ?>
 
@@ -118,7 +124,8 @@ include_once 'includes/header.php';
         <thead>
             <tr>
                 <th class="header">#</th>
-                <th>Name</th>
+                <th>User Name</th>
+                <th>Employee Name</th>
                 <th>Admin type</th>
                 <th>Actions</th>
             </tr>
@@ -130,12 +137,15 @@ include_once 'includes/header.php';
             <tr>
                 <td><?php echo $row['id'] ?></td>
                 <td><?php echo htmlspecialchars($row['user_name']) ?></td>
+                <td><?php echo htmlspecialchars($row['fname']." ".$row['lname']) ?></td>
                 <td><?php echo htmlspecialchars($row['admin_type']) ?></td>
 
                 <td>
-                    <a href="edit_admin.php?admin_user_id=<?php echo $row['id']?>&operation=edit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a href="edit_admin.php?admin_user_id=<?php echo $row['id']?>&operation=edit" 
+                       title="Edit Staff" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
 
-                    <a href=""  class="btn btn-danger delete_btn" data-toggle="modal" data-target="#confirm-delete-<?php echo $row['id'] ?>" style="margin-right: 8px;"><span class="glyphicon glyphicon-trash"></span>
+                    <a href=""  class="btn btn-danger delete_btn" data-toggle="modal" 
+                       title="Delete Staff" data-target="#confirm-delete-<?php echo $row['id'] ?>" style="margin-right: 8px;"><span class="glyphicon glyphicon-trash"></span>
                     
                 </td>
             </tr>

@@ -28,12 +28,14 @@
             <div class="radio">
                 <label>
                     <?php //echo $admin_account['admin_type'] ?>
-                    <input type="radio" name="admin_type" value="super" required="" <?php echo ($edit && $admin_account['admin_type'] =='super') ? "checked": "" ; ?>/> Super admin
+                    <input type="radio" name="admin_type" value="admin" required="" 
+                        <?php echo ($edit && $admin_account['admin_type'] =='admin') ? "checked": "" ; ?>/> Admin
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="admin_type" value="admin" required="" <?php echo ($edit && $admin_account['admin_type'] =='admin') ? "checked": "" ; ?>/> Admin
+                    <input type="radio" name="admin_type" value="staff" required="" 
+                        <?php echo ($edit && $admin_account['admin_type'] =='staff') ? "checked": "" ; ?>/> Staff
                 </label>
             </div>
         </div>

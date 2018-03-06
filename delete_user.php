@@ -4,7 +4,7 @@ require_once 'includes/auth_validate.php';
 require_once './config/config.php';
 $del_id = filter_input(INPUT_POST, 'del_id');
 
-if($_SESSION['admin_type']!='super'){
+if($_SESSION['admin_type']!='admin'){
     header('HTTP/1.1 401 Unauthorized', true, 401);
     exit("401 Unauthorized");
 }

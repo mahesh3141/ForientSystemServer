@@ -54,6 +54,7 @@ foreach ($customers as $value) {
     break;
 }
 include_once 'includes/header.php';
+    $_SESSION['page_name'] = "customerList";
 ?>
 
 <!--Main container start-->
@@ -132,7 +133,7 @@ include_once 'includes/header.php';
                     <td><?php echo htmlspecialchars($row['phone']) ?> </td>
                     <td>
                         <!--Add task assign button -->
-                        <a href="" class="btn btn-primary" style="margin-right: 8px;" data-toggle="modal" 
+                        <a href="" title="Assign Task" class="btn btn-primary" style="margin-right: 8px;" data-toggle="modal" 
                            data-target="#assign-task-<?php echo $row['id'] ?>" ><span class="glyphicon glyphicon-share-alt"></span></a>
 
 
@@ -162,8 +163,8 @@ include_once 'includes/header.php';
                                                     ?>
                                                     <option value='<?php echo $row1['id']; ?> '>
                                                         <?php echo $row1['fname'] . ' ' . $row1['lname']; ?>  </option>  
-                                                    <?php }
-                                                    ?>
+                                                <?php }
+                                                ?>
 
                                             </select>
                                             <div class="form-group">
@@ -183,9 +184,10 @@ include_once 'includes/header.php';
 
 
 
-                        <a href="edit_customer.php?customer_id=<?php echo $row['id'] ?>&operation=edit" class="btn btn-primary" style="margin-right: 8px;"><span class="glyphicon glyphicon-edit"></span>
+                        <a href="edit_customer.php?customer_id=<?php echo $row['id'] ?>&operation=edit" 
+                           title="Edit Customer" class="btn btn-primary" style="margin-right: 8px;"><span class="glyphicon glyphicon-edit"></span>
 
-                            <a href=""  class="btn btn-danger delete_btn" data-toggle="modal" 
+                            <a href="" title="Delete Customer" class="btn btn-danger delete_btn" data-toggle="modal" 
                                data-target="#confirm-delete-<?php echo $row['id'] ?>" style="margin-right: 8px;">
                                 <span class="glyphicon glyphicon-trash"></span></td>
                                 </tr>

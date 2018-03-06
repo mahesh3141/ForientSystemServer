@@ -25,28 +25,47 @@ switch ($action) {
         break;
 }
 
-//default functions for some operations
-function random_string($length) {
-    $key = '';
-    $keys = array_merge(range(0, 9), range('a', 'z'));
-
-    for ($i = 0; $i < $length; $i++) {
-        $key .= $keys[array_rand($keys)];
-    }
-
-    return $key;
-}
-
 function getLogin() {
     global $db;
     $username = $_REQUEST['username'];
     $password = $_REQUEST['password'];
-    $sql_login = "select * from admin_accounts where user_name='" . $username . "' and passwd='" . $password . "'";
 
-    $result = $db->query($sql_login);
-    if (count($result) > 0) {
+    $sql_login = "select * from admin_accounts where user_name='" . $username . "' and passwd='" . $password . "'";
+    $result_login = $db->query($sql_login);
+    foreach ($result_login as $value) {
+        $userID = $value['id'];
+    }
+
+    //open task Counter
+    $query_open = "SELECT COUNT(*) as datacount FROM tasklist "
+            . "where eid = '" .  $userID . "' and status ='open'";
+    $result_open = $db->query($query_open);
+    foreach ($result_open as $value) {
+        $openCounter = $value['datacount'];
+    }
+
+    //resolve task Counter
+    $query_resolve = "SELECT COUNT(*) as datacount FROM tasklist "
+            . "where eid = '" .  $userID . "' and status ='resolved'";
+    
+    $result_resolve = $db->query($query_resolve);
+    foreach ($result_resolve as $value) {
+        $resolveCounter = $value['datacount'];
+    }
+    //close task Counter
+    $query_close = "SELECT COUNT(*) as datacount FROM tasklist "
+            . "where eid = '" .  $userID . "' and status ='closed'";
+    $result_close = $db->query($query_close);
+    foreach ($result_close as $value) {
+        $closedCounter = $value['datacount'];
+    }
+
+    if (count($result_login) > 0) {
         $data['message'] = true;
-        $data['userdata'] = $result[0];
+        $data['taskOpen'] = $openCounter;
+        $data['taskResolve'] = $resolveCounter;
+        $data['taskClosed'] = $closedCounter;
+        $data['userdata'] = $result_login[0];
     } else {
         $data['message'] = false;
         $data['errorMessage'] = 'User not exists';
@@ -104,20 +123,20 @@ function getTaskList() {
     // echo "==>".$query;
     $result = $db->query($query);
 
- 
+
 
     if (count($result) > 0) {
-          $data['message'] = true;
-          $taskList = array();
+        $data['message'] = true;
+        $taskList = array();
         foreach ($result as $value) {
-            
+
             $entery['custName'] = $value['f_name'] . " " . $value['l_name'];
             $entery['taskId'] = $value['taskId'];
             $entery['taskInfo'] = $value['taskInfo'];
             $entery['status'] = $value['status'];
             $entery['address'] = $value['address'];
             $entery['createdAt'] = $value['createdAt'];
-            array_push($taskList,$entery);
+            array_push($taskList, $entery);
         }
         $data['taskList'] = $taskList;
     } else {
