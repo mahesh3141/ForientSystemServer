@@ -5,7 +5,8 @@
 define('BASE_PATH', dirname(dirname(__FILE__)));
 define('APP_FOLDER','simpleadmin');
 define('CURRENT_PAGE', basename($_SERVER['REQUEST_URI']));
-
+define("SERVER_KEY", "AAAAf5yEtTk:APA91bFxWSrFVMxPLVwFs98M7EDZ1pf9D5Lu5P6OXXSCIS1IVgZH05T9wuDqRwJ_O9hoy3n46oEFJGY1dN0YJ1Erl4zke-1B6UbssAXC4wgQ0rPXza5OtNUiv08aDSniaHIARvMMErsD");
+$firebase_path = "https://fcm.googleapis.com/fcm/send";
 
 require_once BASE_PATH.'/lib/MysqliDb.php';
 $servername = "localhost";
@@ -25,5 +26,31 @@ function random_string($length) {
     }
 
     return $key;
+}
+
+function sendPushNotificationToGCMSever($token, $message) {
+    $fields = array(
+        'to' => $token,
+        'notification' => array('title' => 'FFS Notification', 'body' => $message),
+        //'data' => array('message' => $message)
+    );
+    $headers = array(
+        'Authorization:key=' . SERVER_KEY,
+        'Content-Type:application/json'
+    );
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://fcm.googleapis.com/fcm/send");
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
+
+    $result = curl_exec($ch);
+
+    curl_close($ch);
+
+    return $result;
 }
 ?>

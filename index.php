@@ -6,34 +6,42 @@ require_once 'includes/auth_validate.php';
 
 //Get Dashboard information
 $numCustomers = $db->getValue("customers", "count(*)");
+
+//open task Counter
+$query_open = "SELECT COUNT(*) as datacount FROM tasklist where status ='open' ";
+if ($_SESSION['admin_type'] == 'staff') {
+    $query_open = $query_open . " and eid = '" . $_SESSION['userId'] . "' ";
+}
+$result_open = $db->query($query_open);
+foreach ($result_open as $value) {
+    $openCounter = $value['datacount'];
+}
+
+//resolve task Counter
+$query_resolve = "SELECT COUNT(*) as datacount FROM tasklist where status ='resolved' ";
+if ($_SESSION['admin_type'] == 'staff') {
+    $query_resolve = $query_resolve . "and eid = '" . $_SESSION['userId'] . "' ";
+}
+
+$result_resolve = $db->query($query_resolve);
+foreach ($result_resolve as $value) {
+    $resolveCounter = $value['datacount'];
+}
+//close task Counter
+$query_close = "SELECT COUNT(*) as datacount FROM tasklist where status ='closed' ";
+if ($_SESSION['admin_type'] == 'staff') {
+    $query_close = $query_close . "and eid = '" . $_SESSION['userId'] . "' ";
+}
+$result_close = $db->query($query_close);
+foreach ($result_close as $value) {
+    $closedCounter = $value['datacount'];
+}
+
 if ($_SESSION['admin_type'] == 'staff') {
     $query = "SELECT COUNT(*) as datacount FROM tasklist where eid = '" . $_SESSION['userId'] . "'";
     $result = $db->query($query);
     foreach ($result as $value) {
         $taskCounter = $value['datacount'];
-    }
-    //open task Counter
-    $query_open = "SELECT COUNT(*) as datacount FROM tasklist "
-            . "where eid = '" . $_SESSION['userId'] . "' and status ='open'";
-    $result_open = $db->query($query_open);
-    foreach ($result_open as $value) {
-        $openCounter = $value['datacount'];
-    }
-
-    //resolve task Counter
-    $query_resolve = "SELECT COUNT(*) as datacount FROM tasklist "
-            . "where eid = '" . $_SESSION['userId'] . "' and status ='resolved'";
-
-    $result_resolve = $db->query($query_resolve);
-    foreach ($result_resolve as $value) {
-        $resolveCounter = $value['datacount'];
-    }
-    //close task Counter
-    $query_close = "SELECT COUNT(*) as datacount FROM tasklist "
-            . "where eid = '" . $_SESSION['userId'] . "' and status ='closed'";
-    $result_close = $db->query($query_close);
-    foreach ($result_close as $value) {
-        $closedCounter = $value['datacount'];
     }
 } else
     $taskCounter = $db->getValue("tasklist", "count(*)");
@@ -119,7 +127,7 @@ include_once('includes/header.php');
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge"><?php echo $numCustomers; ?></div>
-                                <div>Customers</div>
+                                <div>Total Customers</div>
                             </div>
                         </div>
                     </div>
@@ -142,7 +150,7 @@ include_once('includes/header.php');
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge"><?php echo $taskCounter; ?></div>
-                            <div>View Tasks!</div>
+                            <div>Total Tasks!</div>
                         </div>
                     </div>
                 </div>
@@ -155,46 +163,75 @@ include_once('includes/header.php');
                 </a>
             </div>
         </div>
-        <?php if ($_SESSION['admin_type'] == 'staff') { ?>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-green">
-                    <div class="panel-heading">
-                        <div ><i class="fa fa-fw"></i>&nbsp;Task Summary
+        <?php //if ($_SESSION['admin_type'] == 'staff') { ?>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div  class="row">
+                        <i class="fa fa-address-book"></i>&nbsp;Task Summary
                         </div>
-                    </div>
-                    <table class="table table-striped table-bordered table-condensed">
-                        <thead>
-                            <tr>
-                                <th align="center" class="header">Open</th>
-                                <th align="center">Resolve</th>
-                                <th align="center">Closed</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td align="center"><?php echo $openCounter; ?></td>
-                                <td align="center"><?php echo $resolveCounter; ?></td>
-                                <td align="center"><?php echo $closedCounter; ?></td>
-                            </tr>
+                </div>
+                  <div class="panel-footer">
+                <table class="table table-striped table-bordered table-condensed">
+                    <thead>
+                        <tr>
+                            <th align="center" class="header">Open</th>
+                            <th align="center">Resolve</th>
+                            <th align="center">Closed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="center"><?php echo $openCounter; ?></td>
+                            <td align="center"><?php echo $resolveCounter; ?></td>
+                            <td align="center"><?php echo $closedCounter; ?></td>
+                        </tr>
 
-                        </tbody>
-                    </table></div>
+                    </tbody>
+                </table></div></div>
 
-            </div>
-
-            
-            <div class="container" style="margin-top:20px">
-                <div class="col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Task Graph </div>
-                        <div class="panel-body">
-                            <div id ="mygraph"></div>
-                        </div>
+        </div>
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Task Graph </div>
+                    <div class="panel-body">
+                        <div id ="mygraph"></div>
                     </div>
                 </div>
             </div>
-        <?php } ?>
+        
+        <?php //} ?>
     </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-8">
+
+
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+
+            <!-- /.panel .chat-panel -->
+        </div>
+        <!-- /.col-lg-4 -->
+    </div>
+    <!-- /.row -->
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-8">
+
+
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+
+            <!-- /.panel .chat-panel -->
+        </div>
+        <!-- /.col-lg-4 -->
+    </div>
+    <!-- /.row -->
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-8">

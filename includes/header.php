@@ -59,6 +59,10 @@
                                 <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-user">
+                                <?php if ($_SESSION['admin_type'] == 'admin') { ?>
+                                    <li><a href="sentNotification.php"><i class="fa fa-anchor"></i> Sent Notification</a>
+                                    </li>
+                                <?php } ?>
                                 <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                                 </li>
                                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -110,11 +114,11 @@
                                         <li>
                                             <a href="taskList.php"><i class="fa fa-list fa-fw"></i>Task List </a>
                                         </li>
-                                         <?php if ($_SESSION['admin_type'] == 'admin') { ?>
-                                        <li>
-                                            <a href="addTask.php"><i class="fa fa-plus fa-fw"></i>Create Task</a>
-                                        </li>
-                                         <?php } ?>
+                                        <?php if ($_SESSION['admin_type'] == 'admin') { ?>
+                                            <li>
+                                                <a href="addTask.php"><i class="fa fa-plus fa-fw"></i>Create Task</a>
+                                            </li>
+                                        <?php } ?>
                                     </ul>
                                 </li>
                             </ul>

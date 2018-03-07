@@ -2,6 +2,7 @@
 
 include '../config/config.php';
 //require_once '../includes/auth_validate.php';
+global $registerDeviceId;
 $action = $_REQUEST['action'];
 //echo $servername;
 switch ($action) {
@@ -30,15 +31,33 @@ function getLogin() {
     $username = $_REQUEST['username'];
     $password = $_REQUEST['password'];
 
+
+    $registerDeviceId = $_REQUEST['registerId'];
+
     $sql_login = "select * from admin_accounts where user_name='" . $username . "' and passwd='" . $password . "'";
     $result_login = $db->query($sql_login);
     foreach ($result_login as $value) {
         $userID = $value['id'];
     }
 
+
+    // update the login table to store regiter token to sent notification
+    $data_to_update['deviceId'] = $registerDeviceId;
+    $db->where('id', $userID);
+    $stat = $db->update('admin_accounts', $data_to_update);
+
+
+    //again search for json
+    $result_login = $db->query($sql_login);
+    foreach ($result_login as $value) {
+        $userID = $value['id'];
+    }
+
+
+
     //open task Counter
     $query_open = "SELECT COUNT(*) as datacount FROM tasklist "
-            . "where eid = '" .  $userID . "' and status ='open'";
+            . "where eid = '" . $userID . "' and status ='open'";
     $result_open = $db->query($query_open);
     foreach ($result_open as $value) {
         $openCounter = $value['datacount'];
@@ -46,15 +65,15 @@ function getLogin() {
 
     //resolve task Counter
     $query_resolve = "SELECT COUNT(*) as datacount FROM tasklist "
-            . "where eid = '" .  $userID . "' and status ='resolved'";
-    
+            . "where eid = '" . $userID . "' and status ='resolved'";
+
     $result_resolve = $db->query($query_resolve);
     foreach ($result_resolve as $value) {
         $resolveCounter = $value['datacount'];
     }
     //close task Counter
     $query_close = "SELECT COUNT(*) as datacount FROM tasklist "
-            . "where eid = '" .  $userID . "' and status ='closed'";
+            . "where eid = '" . $userID . "' and status ='closed'";
     $result_close = $db->query($query_close);
     foreach ($result_close as $value) {
         $closedCounter = $value['datacount'];
@@ -70,6 +89,15 @@ function getLogin() {
         $data['message'] = false;
         $data['errorMessage'] = 'User not exists';
     }
+
+
+    if ($stat) {
+        print json_encode($data);
+        header("Content-type:application/json");
+    } else {
+        echo 'device registration fail...';
+    }
+
 //    
 //    $jsonData = array();
 //
@@ -84,9 +112,6 @@ function getLogin() {
 //        $data['userdata'] = $result;
 //        //$data['menus'] = getMenus();
 //    }
-
-    print json_encode($data);
-    header("Content-type:application/json");
 }
 
 function getMenus() {
@@ -233,5 +258,7 @@ AND mo.empid = emp.emplyoee_id AND mo.menuid = m.menu_id AND mo.empid='" . $empi
 
     print json_encode($array_list);
 }
+
+
 
 ?>
