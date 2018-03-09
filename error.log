@@ -2451,3 +2451,62 @@
 [Wed Mar 07 16:31:44.758952 2018] [:error] [pid 9794] [client 192.168.0.108:56226] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 32, referer: http://www.adminmasters.com/index.php
 [Wed Mar 07 16:31:44.759428 2018] [:error] [pid 9794] [client 192.168.0.108:56226] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 40, referer: http://www.adminmasters.com/index.php
 [Wed Mar 07 16:31:44.759868 2018] [:error] [pid 9794] [client 192.168.0.108:56226] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 120, referer: http://www.adminmasters.com/index.php
+[Wed Mar 07 18:57:54.127284 2018] [:error] [pid 14263] [client 192.168.0.108:33820] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 12, referer: http://www.adminmasters.com/index.php
+[Wed Mar 07 18:57:54.199054 2018] [:error] [pid 14263] [client 192.168.0.108:33820] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 22, referer: http://www.adminmasters.com/index.php
+[Wed Mar 07 18:57:54.199909 2018] [:error] [pid 14263] [client 192.168.0.108:33820] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 32, referer: http://www.adminmasters.com/index.php
+[Wed Mar 07 18:57:54.200640 2018] [:error] [pid 14263] [client 192.168.0.108:33820] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 40, referer: http://www.adminmasters.com/index.php
+[Wed Mar 07 18:57:54.201372 2018] [:error] [pid 14263] [client 192.168.0.108:33820] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 120, referer: http://www.adminmasters.com/index.php
+[Wed Mar 07 18:58:33.296560 2018] [:error] [pid 14430] [client 192.168.0.108:33880] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 12, referer: http://www.adminmasters.com/index.php
+[Wed Mar 07 18:58:33.297351 2018] [:error] [pid 14430] [client 192.168.0.108:33880] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 22, referer: http://www.adminmasters.com/index.php
+[Wed Mar 07 18:58:33.318929 2018] [:error] [pid 14430] [client 192.168.0.108:33880] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 32, referer: http://www.adminmasters.com/index.php
+[Wed Mar 07 18:58:33.319694 2018] [:error] [pid 14430] [client 192.168.0.108:33880] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 40, referer: http://www.adminmasters.com/index.php
+[Wed Mar 07 18:58:33.320459 2018] [:error] [pid 14430] [client 192.168.0.108:33880] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 120, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 10:59:26.952107 2018] [:error] [pid 2844] [client 192.168.0.108:46494] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 12
+[Fri Mar 09 10:59:27.068267 2018] [:error] [pid 2844] [client 192.168.0.108:46494] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 22
+[Fri Mar 09 10:59:27.069278 2018] [:error] [pid 2844] [client 192.168.0.108:46494] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 32
+[Fri Mar 09 10:59:27.070043 2018] [:error] [pid 2844] [client 192.168.0.108:46494] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 40
+[Fri Mar 09 10:59:27.094752 2018] [:error] [pid 2844] [client 192.168.0.108:46494] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 120
+[Fri Mar 09 11:00:26.148085 2018] [:error] [pid 2848] [client 192.168.0.108:46578] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 12, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 11:00:26.149009 2018] [:error] [pid 2848] [client 192.168.0.108:46578] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 22, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 11:00:26.149709 2018] [:error] [pid 2848] [client 192.168.0.108:46578] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 32, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 11:00:26.150215 2018] [:error] [pid 2848] [client 192.168.0.108:46578] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 40, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 11:00:26.150878 2018] [:error] [pid 2848] [client 192.168.0.108:46578] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 120, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 11:06:32.950885 2018] [:error] [pid 7477] [client 192.168.0.108:46858] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 12
+[Fri Mar 09 11:06:32.951891 2018] [:error] [pid 7477] [client 192.168.0.108:46858] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 22
+[Fri Mar 09 11:06:32.952559 2018] [:error] [pid 7477] [client 192.168.0.108:46858] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 32
+[Fri Mar 09 11:06:32.966372 2018] [:error] [pid 7477] [client 192.168.0.108:46858] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 40
+[Fri Mar 09 11:06:32.967180 2018] [:error] [pid 7477] [client 192.168.0.108:46858] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 120
+[Fri Mar 09 13:00:49.078620 2018] [:error] [pid 2845] [client 192.168.0.108:52246] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 12
+[Fri Mar 09 13:00:49.119502 2018] [:error] [pid 2845] [client 192.168.0.108:52246] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 22
+[Fri Mar 09 13:00:49.120037 2018] [:error] [pid 2845] [client 192.168.0.108:52246] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 32
+[Fri Mar 09 13:00:49.120321 2018] [:error] [pid 2845] [client 192.168.0.108:52246] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 40
+[Fri Mar 09 13:00:49.120654 2018] [:error] [pid 2845] [client 192.168.0.108:52246] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 120
+[Fri Mar 09 13:01:00.764146 2018] [:error] [pid 2846] [client 192.168.0.108:52254] PHP Notice:  Use of undefined constant CURLSSL_VERIFYHOST - assumed 'CURLSSL_VERIFYHOST' in /var/www/adminmaster/config/config.php on line 46, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 13:01:00.764243 2018] [:error] [pid 2846] [client 192.168.0.108:52254] PHP Warning:  curl_setopt() expects parameter 2 to be integer, string given in /var/www/adminmaster/config/config.php on line 46, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 13:02:02.079588 2018] [:error] [pid 2844] [client 192.168.0.108:52304] PHP Notice:  Use of undefined constant CURL_SSL_VERIFYHOST - assumed 'CURL_SSL_VERIFYHOST' in /var/www/adminmaster/config/config.php on line 46, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 13:02:02.079691 2018] [:error] [pid 2844] [client 192.168.0.108:52304] PHP Warning:  curl_setopt() expects parameter 2 to be integer, string given in /var/www/adminmaster/config/config.php on line 46, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 13:25:43.533169 2018] [:error] [pid 2845] [client 192.168.0.108:53366] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 12, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 13:25:43.533975 2018] [:error] [pid 2845] [client 192.168.0.108:53366] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 22, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 13:25:43.534876 2018] [:error] [pid 2845] [client 192.168.0.108:53366] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 32, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 13:25:43.535637 2018] [:error] [pid 2845] [client 192.168.0.108:53366] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 40, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 13:25:43.536377 2018] [:error] [pid 2845] [client 192.168.0.108:53366] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 120, referer: http://www.adminmasters.com/index.php
+[Fri Mar 09 13:33:17.541063 2018] [:error] [pid 2848] [client 192.168.0.108:53732] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 12, referer: http://www.adminmasters.com/
+[Fri Mar 09 13:33:17.541767 2018] [:error] [pid 2848] [client 192.168.0.108:53732] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 22, referer: http://www.adminmasters.com/
+[Fri Mar 09 13:33:17.542562 2018] [:error] [pid 2848] [client 192.168.0.108:53732] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 32, referer: http://www.adminmasters.com/
+[Fri Mar 09 13:33:17.543282 2018] [:error] [pid 2848] [client 192.168.0.108:53732] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 40, referer: http://www.adminmasters.com/
+[Fri Mar 09 13:33:17.543989 2018] [:error] [pid 2848] [client 192.168.0.108:53732] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 120, referer: http://www.adminmasters.com/
+[Fri Mar 09 14:37:37.758714 2018] [:error] [pid 7481] [client 192.168.0.108:57864] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 12
+[Fri Mar 09 14:37:37.759225 2018] [:error] [pid 7481] [client 192.168.0.108:57864] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 22
+[Fri Mar 09 14:37:37.759591 2018] [:error] [pid 7481] [client 192.168.0.108:57864] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 32
+[Fri Mar 09 14:37:37.759992 2018] [:error] [pid 7481] [client 192.168.0.108:57864] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 40
+[Fri Mar 09 14:37:37.760374 2018] [:error] [pid 7481] [client 192.168.0.108:57864] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 120
+[Fri Mar 09 15:24:46.055143 2018] [:error] [pid 2844] [client 192.168.0.108:60938] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 12
+[Fri Mar 09 15:24:46.055341 2018] [:error] [pid 2844] [client 192.168.0.108:60938] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 22
+[Fri Mar 09 15:24:46.055572 2018] [:error] [pid 2844] [client 192.168.0.108:60938] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 32
+[Fri Mar 09 15:24:46.055707 2018] [:error] [pid 2844] [client 192.168.0.108:60938] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 40
+[Fri Mar 09 15:24:46.055848 2018] [:error] [pid 2844] [client 192.168.0.108:60938] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 120
+[Fri Mar 09 17:02:07.823775 2018] [:error] [pid 19474] [client 192.168.0.108:37730] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 12
+[Fri Mar 09 17:02:07.965181 2018] [:error] [pid 19474] [client 192.168.0.108:37730] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 22
+[Fri Mar 09 17:02:07.966162 2018] [:error] [pid 19474] [client 192.168.0.108:37730] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 32
+[Fri Mar 09 17:02:07.967117 2018] [:error] [pid 19474] [client 192.168.0.108:37730] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 40
+[Fri Mar 09 17:02:07.968199 2018] [:error] [pid 19474] [client 192.168.0.108:37730] PHP Notice:  Undefined index: admin_type in /var/www/adminmaster/index.php on line 120

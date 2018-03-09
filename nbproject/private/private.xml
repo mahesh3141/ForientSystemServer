@@ -6,8 +6,9 @@
             <file>file:/var/www/adminmaster/config/config.php</file>
             <file>file:/var/www/adminmaster/includes/header.php</file>
             <file>file:/var/www/adminmaster/sentNotification.php</file>
-            <file>file:/var/www/adminmaster/index12.php</file>
+            <file>file:/var/www/adminmaster/add_admin.php</file>
             <file>file:/var/www/adminmaster/webservice/index.php</file>
+            <file>file:/var/www/adminmaster/lib/MysqliDb.php</file>
             <file>file:/var/www/adminmaster/index.php</file>
         </group>
     </open-files>
