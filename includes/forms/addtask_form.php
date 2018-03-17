@@ -6,6 +6,7 @@
         <label class="col-md-4 control-label">Employee name</label>
         <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
+
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                 <select name="spnEmp" id="spnEmp" class="form-control">
                     <option value="#">Select</option>   
@@ -15,8 +16,21 @@
 
                     foreach ($query as $row1) {
                         ?>
-                        <option value='<?php echo $row1['id']; ?> '>
-                            <?php echo $row1['fname'] . ' ' . $row1['lname']; ?>  </option>  
+                        <option value='<?php echo $row1['id']; ?> '
+                        <?php
+                        if ($edit == true) {
+                            if ($row1['id'] == $tasklist['eid']) {
+                                ?>
+                                        selected="selected"
+                                        <?php
+                                    }
+                                }
+                                ?>
+
+                                >
+                                    <?php echo $row1['fname'] . ' ' . $row1['lname']; ?> 
+
+                        </option>  
                     <?php }
                     ?>
 
@@ -38,7 +52,18 @@
 
                     foreach ($query as $row1) {
                         ?>
-                        <option value='<?php echo $row1['id']; ?> '>
+                        <option value='<?php echo $row1['id']; ?> '
+                        <?php
+                        if ($edit == true) {
+                            if ($row1['id'] == $tasklist['cid']) {
+                                ?>
+                                        selected="selected"
+                                        <?php
+                                    }
+                                }
+                                ?>
+
+                                >
                             <?php echo $row1['f_name'] . ' ' . $row1['l_name']; ?>  </option>  
                     <?php }
                     ?>
@@ -48,16 +73,17 @@
         </div>
     </div>
     <!-- Add Task Desc -->
-     <div class="form-group">
+    <div class="form-group">
         <label class="col-md-4 control-label">Task Detail</label>
         <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
                 <span align="top" class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                 <textarea name="taskdesc" id="taskdesc" placeholder="Add Task Description" class="form-control" id="address"></textarea>
+                <textarea name="taskdesc" id="taskdesc" placeholder="Add Task Description" class="form-control" id="address"
+                  ><?php echo ($edit) ? $tasklist['taskInfo'] : ''; ?></textarea>
             </div>
         </div>
     </div>
-   
+        
     <!-- Button -->
     <div class="form-group">
         <label class="col-md-4 control-label"></label>

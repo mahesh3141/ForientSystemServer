@@ -170,7 +170,7 @@ include_once 'includes/header.php';
                     <td><?php echo ucfirst(htmlspecialchars($row['status'])) ?></td>
                     <td>
 
-                        <a href="edit_admin.php?admin_user_id=<?php echo $row['id'] ?>&operation=edit" 
+                        <a href="edit_task.php?admin_user_id=<?php echo $row['id'] ?>&operation=edit" 
                            title="Change Status" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
                            <?php
                            //Only super admin is allowed to change the status of task
